@@ -1,0 +1,29 @@
+name: References check
+
+on:
+  - push
+  - pull_request
+
+jobs:
+  reference_diff:
+    runs-on: ubuntu-20.04
+    steps:
+    - name: Clone repository
+      uses: actions/checkout@v2
+
+    - name: Install puppet-strings
+      run: |
+        sudo apt update
+        sudo apt install -y puppet puppet-strings
+    - name: Generate temporary strings
+      run: |
+        puppet strings generate --format markdown --out /tmp/references.md
+    - name: Compare the actual and expected
+      run: |
+        if ! cmp "REFERENCES.md" "/tmp/references.md"; then
+          diff -u REFERENCES.md /tmp/references.md
+          echo "Diff between expected references and the commited file, please regenerate references \
+          with puppet strings generate --format markdown --out REFERENCES.md and commit them"
+        else
+          echo "References are up to date"
+        fi

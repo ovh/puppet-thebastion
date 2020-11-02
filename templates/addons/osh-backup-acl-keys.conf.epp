@@ -1,0 +1,16 @@
+# Managed by puppet, do not edit
+
+DAYSTOKEEP=<%= $thebastion::backup_acl_keys_days_to_keep %>
+DESTDIR=<%= $thebastion::backup_acl_keys_destdir %>
+<%# Intented to be compatible with /opt/bastion/bin/admin/setup-gpg.sh -%>
+<% if $thebastion::backup_acl_keys_gpgkeys != undef { -%>
+GPGKEYS="<%= $thebastion::backup_acl_keys_gpgkeys %>"
+<% } -%>
+<% if $thebastion::backup_acl_keys_logfacility != undef { -%>
+LOG_FACILITY="<%= $thebastion::backup_acl_keys_logfacility %>"
+<% } -%>
+<% if $thebastion::backup_acl_keys_logfile != undef { -%>
+LOGFILE="<%= $thebastion::backup_acl_keys_logfile %>"
+<% } -%>
+PUSH_REMOTE="<%= $thebastion::backup_acl_keys_push_remote %>"
+PUSH_OPTIONS="<%= $thebastion::backup_acl_keys_push_options %>"
