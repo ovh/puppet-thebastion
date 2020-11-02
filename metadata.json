@@ -1,12 +1,21 @@
 {
-  "name": "goldenkiwi-thebastion",
+  "name": "puppet-thebastion",
   "version": "0.1.0",
   "author": "Thibault Dewailly",
-  "summary": "",
+  "summary": "Puppet Thebastion management module",
   "license": "Apache-2.0",
   "source": "",
+  "project_page": "",
+  "issues_url": "",
   "dependencies": [
-
+    {
+      "name": "puppetlabs/concat",
+      "version_requirement": ">= 4.1.0 < 7.0.0"
+    },
+    {
+      "name": "puppetlabs/stdlib",
+      "version_requirement":">= 5.0.0 < 7.0.0"
+    }
   ],
   "operatingsystem_support": [
     {
@@ -39,18 +48,12 @@
         "18.04",
         "20.04"
       ]
-    },
-    {
-      "operatingsystem": "Fedora",
-      "operatingsystemrelease": [
-        "29"
-      ]
     }
   ],
   "requirements": [
     {
       "name": "puppet",
-      "version_requirement": ">= 4.10.0 < 7.0.0"
+      "version_requirement": ">= 4.8.2 < 7.0.0"
     }
   ],
   "pdk-version": "1.18.1",

@@ -1,0 +1,14 @@
+<%- | Integer $enabled,
+      String $remote_host_list,
+| -%>
+# Managed by puppet, do not edit
+
+enabled=<%= $enabled %>
+<% if $thebastion::sync_watcher_logdir != undef { -%>
+logdir=<%= $thebastion::sync_watcher_logdir %>
+<% } -%>
+remotehostlist="<%= $remote_host_list %>"
+remoteuser=<%= $thebastion::sync_watcher_remote_user %>
+rshcmd="<%= $thebastion::sync_watcher_rsh_cmd %>"
+syslog=<%= $thebastion::sync_watcher_syslog %>
+timeout=<%= $thebastion::sync_watcher_timeout %>

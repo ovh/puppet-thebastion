@@ -1,0 +1,13 @@
+# Managed by Puppet, do not edit
+
+############################################################################################
+# Main config for ovh-bastion.
+# This is a JSON file, its syntax must be valid at all times. To verify:
+# => grep -v ^# /etc/bastion/bastion.conf|python -mjson.tool>/dev/null && echo OK
+#
+# If you're on a production bastion you can verify it can properly load its configuration:
+# => perl -I/opt/bastion/lib/perl -MOVH::Bastion -e 'die OVH::Bastion::load_configuration()'
+#
+# For further informations please visit
+# https://github.com/ovh/the-bastion/blob/master/etc/bastion/bastion.conf.dist
+############################################################################################
