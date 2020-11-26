@@ -5,7 +5,7 @@ on:
   - pull_request
 
 jobs:
-  build:
+  unit_test:
     runs-on: ubuntu-latest
     steps:
     - name: Clone repository
