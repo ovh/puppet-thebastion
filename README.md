@@ -116,7 +116,7 @@ to be fully operational (e.g sync_watcher_remote_host_list parameter).
 
 ## Related
 
-- [Thebastion](https://github.com/ovh/the-bastion) - The Bastion main repository
+- [The Bastion](https://github.com/ovh/the-bastion) - The Bastion main repository
 
 ## License
 
