@@ -1,11 +1,11 @@
-name: Run static validation
+name: Run syntax validation
 
 on:
   - push
   - pull_request
 
 jobs:
-  build:
+  syntax:
     runs-on: ubuntu-latest
     steps:
     - name: Clone repository
