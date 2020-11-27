@@ -1,12 +1,12 @@
 {
   "name": "puppet-thebastion",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "author": "Thibault Dewailly",
   "summary": "Puppet Thebastion management module",
   "license": "Apache-2.0",
-  "source": "",
-  "project_page": "",
-  "issues_url": "",
+  "source": "https://github.com/ovh/puppet-thebastion.git",
+  "project_page": "https://github.com/ovh/puppet-thebastion",
+  "issues_url": "https://github.com/ovh/puppet-thebastion/issues",
   "dependencies": [
     {
       "name": "puppetlabs/concat",
