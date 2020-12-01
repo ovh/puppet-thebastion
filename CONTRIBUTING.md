@@ -6,9 +6,9 @@ pay attention to a few things:
 1. your code must follow the Puppet coding style rules (puppet-lint, parser validate)
 2. your code must be added to the unit tests (rspec). Documentation is excluded
 from this task
-3. your code must be documented (README.md, REFERENCES.md)
+3. your code must be documented (README.md, REFERENCE.md)
 4. your work must be signed (see below)
-5. If you changed/added/removed any parameter, please regenerate REFERENCES.md
+5. If you changed/added/removed any parameter, please regenerate REFERENCE.md
 5. you may contribute through GitHub Pull Requests which must pass all tests
 
 # Coding and documentation Style for source code
@@ -19,10 +19,10 @@ useful tools like [rspec-puppet](http://rspec-puppet.com/) or [Puppet Lint](http
 in a unified way.
 
 Note that the CI (namely GitHub Actions) uses PDK to valite any change.
-REFERENCES.md generation is made with [puppet-strings](https://github.com/puppetlabs/puppet-strings)
+REFERENCE.md generation is made with [puppet-strings](https://github.com/puppetlabs/puppet-strings)
 
 ```bash
-  puppet strings generate --format markdown --out REFERENCES.md
+  puppet strings generate --format markdown --out REFERENCE.md
 ```
 
 # Submitting Modifications

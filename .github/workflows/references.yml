@@ -20,10 +20,10 @@ jobs:
         puppet strings generate --format markdown --out /tmp/references.md
     - name: Compare the actual and expected
       run: |
-        if ! cmp "REFERENCES.md" "/tmp/references.md"; then
-          diff -u REFERENCES.md /tmp/references.md
+        if ! cmp "REFERENCE.md" "/tmp/references.md"; then
+          diff -u REFERENCE.md /tmp/references.md
           echo "Diff between expected references and the commited file, please regenerate references \
-          with puppet strings generate --format markdown --out REFERENCES.md and commit them"
+          with puppet strings generate --format markdown --out REFERENCE.md and commit them"
           exit 1
         else
           echo "References are up to date"
