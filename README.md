@@ -66,7 +66,7 @@ class {'thebastion':
 }
 ```
 
-You can consult [REFERENCES.md](REFERENCES.md) file for a complete list of
+You can consult [REFERENCE.md](REFERENCE.md) file for a complete list of
 available parameters.
 
 ### Customize plugins configuration
