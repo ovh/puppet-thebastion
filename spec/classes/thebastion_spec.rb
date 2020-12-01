@@ -266,9 +266,9 @@ describe 'thebastion' do
           expect(parsed['warnBeforeLockSeconds']).to eq(41)
         end
         it { is_expected.to contain_exec('add_john_in_osh-admin_group').with_command('getent passwd john >/dev/null && usermod -a -G osh-admin john') }
-        it { is_expected.to contain_exec('add_john_in_osh-admin_group').with_onlyif('id -nG john | grep -q \'osh-admin\'') }
+        it { is_expected.to contain_exec('add_john_in_osh-admin_group').with_unless('id -nG john | grep -q \'osh-admin\'') }
         it { is_expected.to contain_exec('add_doe_in_osh-admin_group').with_command('getent passwd doe >/dev/null && usermod -a -G osh-admin doe') }
-        it { is_expected.to contain_exec('add_doe_in_osh-admin_group').with_onlyif('id -nG doe | grep -q \'osh-admin\'') }
+        it { is_expected.to contain_exec('add_doe_in_osh-admin_group').with_unless('id -nG doe | grep -q \'osh-admin\'') }
       end
 
       context 'Invalid configuration validation' do

@@ -138,8 +138,8 @@ class thebastion::config {
     # We want to add the osh-admin group to an existing account on the system we apply the manifest to
     exec { "add_${user}_in_osh-admin_group":
       command => "getent passwd ${user} >/dev/null && usermod -a -G osh-admin ${user}",
-      onlyif  => "id -nG ${user} | grep -q 'osh-admin'",
-      path    => ['/usr/bin', '/bin'],
+      unless  => "id -nG ${user} | grep -q 'osh-admin'",
+      path    => ['/usr/bin', '/bin', '/usr/sbin'],
     }
   }
 
