@@ -10,11 +10,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Get latest tag
-      run: echo ::set-env name=RELEASE_VERSION::$(echo ${GITHUB_REF:10})
+      id: vars
+      run: echo ::set-output name=tag::${GITHUB_REF#refs/*/}
     - name: Clone repository
-      uses: actions/checkout@v1
+      uses: actions/checkout@v2
       with:
-        ref: ${{ env.RELEASE_VERSION }}
+        ref: ${{ steps.vars.outputs.tag }}
     - name: Build and publish module
       uses: barnumbirr/action-forge-publish@v2.3.0
       env:
