@@ -1,6 +1,6 @@
 {
-  "name": "puppet-thebastion",
-  "version": "1.0.0",
+  "name": "goldenkiwi-thebastion",
+  "version": "1.0.2",
   "author": "Thibault Dewailly",
   "summary": "Puppet Thebastion management module",
   "license": "Apache-2.0",
