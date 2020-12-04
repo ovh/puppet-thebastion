@@ -42,7 +42,7 @@ define thebastion::plugin (
 
   concat::fragment { "thebastion-plugin-${title}-conf":
     target  => $plugin_config_file,
-    content => $configuration.to_json_pretty(),
+    content => to_json_pretty($configuration, true),
     order   => '100',
   }
 }
