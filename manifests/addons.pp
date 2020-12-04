@@ -56,7 +56,7 @@ class thebastion::addons {
 
   concat::fragment { 'thebastion::addons::osh-encrypt-rsync-conf':
     target  => '/etc/bastion/osh-encrypt-rsync.conf.d/01-managed-by-puppet.conf',
-    content => $encrypt_rsync_conf.to_json_pretty(),
+    content => to_json_pretty($encrypt_rsync_conf, true),
     order   => '100',
   }
 
@@ -91,7 +91,7 @@ class thebastion::addons {
 
   concat::fragment { 'thebastion::addons::osh-http-proxy-conf':
     target  => '/etc/bastion/osh-http-proxy.conf',
-    content => $http_proxy_conf.to_json_pretty(),
+    content => to_json_pretty($http_proxy_conf, true),
     order   => '100',
   }
 
@@ -118,7 +118,7 @@ class thebastion::addons {
 
   concat::fragment { 'thebastion::addons::osh-piv-grace-reaper-conf':
     target  => '/etc/bastion/osh-piv-grace-reaper.conf',
-    content => $piv_grace_reaper_conf.to_json_pretty(),
+    content => to_json_pretty($piv_grace_reaper_conf, true),
     order   => '100',
   }
 

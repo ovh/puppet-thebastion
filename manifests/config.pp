@@ -167,7 +167,7 @@ class thebastion::config {
 
   concat::fragment { 'thebastion-conf':
     target  => $main_config_file,
-    content => $conf.to_json_pretty(),
+    content => to_json_pretty($conf, true),
     order   => '100',
   }
 
