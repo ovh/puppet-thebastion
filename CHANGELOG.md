@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [v1.0.4](https://github.com/ovh/puppet-thebastion/tree/v1.0.4) (2020-12-07)
+
+- [plugins] Remove useless comment inside epp
+
 ## [v1.0.3](https://github.com/ovh/puppet-thebastion/tree/v1.0.3) (2020-12-04)
 
 - fix: skip undef values when outputing pretty JSON
