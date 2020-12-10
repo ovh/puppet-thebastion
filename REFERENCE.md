@@ -831,7 +831,7 @@ Default value: $thebastion::params::sync_watcher_logdir
 
 ##### `sync_watcher_remote_host_list`
 
-Data type: `Array[Stdlib::IP::Address::Nosubnet]`
+Data type: `Array[String]`
 
 Remote hosts to connect to while rsyncing
 

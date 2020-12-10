@@ -223,7 +223,7 @@ class thebastion::params {
   $piv_grace_reaper_syslog                  = undef
   $sync_watcher_enabled                     = false
   $sync_watcher_logdir                      = undef
-  $sync_watcher_remote_host_list            = ['127.0.0.1']
+  $sync_watcher_remote_host_list            = [ ]
   $sync_watcher_remote_user                 = ''
   $sync_watcher_rsh_cmd                     = ''
   $sync_watcher_syslog                      = ''
