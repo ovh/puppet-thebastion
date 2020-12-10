@@ -325,7 +325,7 @@ class thebastion (
   Optional[String] $piv_grace_reaper_syslog                                         = $thebastion::params::piv_grace_reaper_syslog,
   Boolean $sync_watcher_enabled                                                     = $thebastion::params::sync_watcher_enabled,
   Optional[Stdlib::AbsolutePath] $sync_watcher_logdir                               = $thebastion::params::sync_watcher_logdir,
-  Array[Stdlib::IP::Address::Nosubnet] $sync_watcher_remote_host_list               = $thebastion::params::sync_watcher_remote_host_list,
+  Array[String] $sync_watcher_remote_host_list                                      = $thebastion::params::sync_watcher_remote_host_list,
   String $sync_watcher_remote_user                                                  = $thebastion::params::sync_watcher_remote_user,
   String $sync_watcher_rsh_cmd                                                      = $thebastion::params::sync_watcher_rsh_cmd,
   String $sync_watcher_syslog                                                       = $thebastion::params::sync_watcher_syslog,

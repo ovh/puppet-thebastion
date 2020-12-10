@@ -676,7 +676,7 @@ describe 'thebastion' do
           {
             sync_watcher_enabled:          false,
             sync_watcher_logdir:           '/var/log/bastion',
-            sync_watcher_remote_host_list: ['127.0.0.1', '127.0.0.2'],
+            sync_watcher_remote_host_list: ['127.0.0.1', '127.0.0.2:222'],
             sync_watcher_remote_user:      'bastionsync',
             sync_watcher_rsh_cmd:          'ssh -q -i /root/.ssh/id_master2slave',
             sync_watcher_syslog:           'local6',
@@ -686,7 +686,7 @@ describe 'thebastion' do
 
         it { is_expected.to contain_file('/etc/bastion/osh-sync-watcher.sh').with_content(%r{^enabled=0$}) }
         it { is_expected.to contain_file('/etc/bastion/osh-sync-watcher.sh').with_content(%r{^logdir=/var/log/bastion$}) }
-        it { is_expected.to contain_file('/etc/bastion/osh-sync-watcher.sh').with_content(%r{^remotehostlist="127.0.0.1 127.0.0.2"$}) }
+        it { is_expected.to contain_file('/etc/bastion/osh-sync-watcher.sh').with_content(%r{^remotehostlist="127.0.0.1 127.0.0.2:222"$}) }
         it { is_expected.to contain_file('/etc/bastion/osh-sync-watcher.sh').with_content(%r{^remoteuser=bastionsync$}) }
         it { is_expected.to contain_file('/etc/bastion/osh-sync-watcher.sh').with_content(%r{^rshcmd="ssh -q -i /root/.ssh/id_master2slave"$}) }
         it { is_expected.to contain_file('/etc/bastion/osh-sync-watcher.sh').with_content(%r{^syslog=local6$}) }
