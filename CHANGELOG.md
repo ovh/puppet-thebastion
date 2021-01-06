@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+## [v1.0.6](https://github.com/ovh/puppet-thebastion/tree/v1.0.6) (2021-01-06)
+
+- [documentation] Fix documenation link to github
+
+## [v1.0.5](https://github.com/ovh/puppet-thebastion/tree/v1.0.5) (2020-12-10)
+
+- [plugins] sync_watcher : fix type as :port format is supported
+
 ## [v1.0.4](https://github.com/ovh/puppet-thebastion/tree/v1.0.4) (2020-12-07)
 
 - [plugins] Remove useless comment inside epp
