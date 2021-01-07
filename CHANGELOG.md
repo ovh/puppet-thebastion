@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [v1.0.7](https://github.com/ovh/puppet-thebastion/tree/v1.0.7) (2021-01-07)
+
+- [install] add install_address parameter to clone from wherever you want
+
 ## [v1.0.6](https://github.com/ovh/puppet-thebastion/tree/v1.0.6) (2021-01-06)
 
 - [documentation] Fix documenation link to github
