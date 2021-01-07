@@ -4,6 +4,7 @@ class thebastion::params {
   # Install parameters
   $install_thebastion                       = true
   $install_packages                         = true
+  $install_address                          = 'https://github.com/ovh/the-bastion'
 
   case $facts['os']['family'] {
     'Debian': {

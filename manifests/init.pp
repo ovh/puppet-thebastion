@@ -7,6 +7,8 @@
 #   Whether to install bastion's software
 # @param install_packages
 #   Whether to install package dependencies
+# @param install_address
+#   Address where to find source code of the bastion
 #
 # Bastion's main configuration
 #
@@ -223,6 +225,7 @@ class thebastion (
   # Install parameters
   Boolean $install_thebastion                                                       = $thebastion::params::install_thebastion,
   Boolean $install_packages                                                         = $thebastion::params::install_packages,
+  String  $install_address                                                          = $thebastion::params::install_address,
 
   # Configuration parameters
   Array   $account_create_default_personal_accesses                                 = $thebastion::params::account_create_default_personal_accesses,

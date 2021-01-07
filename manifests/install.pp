@@ -9,7 +9,7 @@ class thebastion::install {
     ensure_packages(['git'])
 
     exec { 'Clone Thebastion':
-      command => "git clone https://github.com/ovh/the-bastion ${thebastion::bastion_basedir}",
+      command => "git clone ${thebastion::install_address} ${thebastion::bastion_basedir}",
       unless  => "test -d ${thebastion::bastion_basedir}",
       path    => ['/usr/bin', '/bin'],
       require => Package['git'],

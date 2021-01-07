@@ -27,6 +27,7 @@ describe 'thebastion' do
       context 'Thebastion Install validation' do
         it { is_expected.to contain_package('git').with_ensure('present') }
         it { is_expected.to contain_exec('Clone Thebastion').that_requires('Package[git]') }
+        it { is_expected.to contain_exec('Clone Thebastion').with_command('git clone https://github.com/ovh/the-bastion /opt/bastion') }
         it { is_expected.to contain_exec('Checkout Thebastion').that_subscribes_to('Exec[Clone Thebastion]') }
       end
 

@@ -45,6 +45,14 @@ Whether to install package dependencies
 
 Default value: $thebastion::params::install_packages
 
+##### `install_address`
+
+Data type: `String`
+
+Address where to find source code of the bastion
+
+Default value: $thebastion::params::install_address
+
 ##### `account_create_default_personal_accesses`
 
 Data type: `Array`
