@@ -2,9 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [v1.0.9](https://github.com/ovh/puppet-thebastion/tree/v1.0.9) (2021-01-08)
+
+- fix: git checkout command
+
 ## [v1.0.8](https://github.com/ovh/puppet-thebastion/tree/v1.0.8) (2021-01-08)
 
-- fix: add exec return code 2 acceptable, avoids unnecessary fails if admin user doesn't exist yet 
+- fix: add exec return code 2 acceptable, avoids unnecessary fails if admin user doesn't exist yet
 
 ## [v1.0.7](https://github.com/ovh/puppet-thebastion/tree/v1.0.7) (2021-01-07)
 
