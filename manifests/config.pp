@@ -140,6 +140,7 @@ class thebastion::config {
       command => "getent passwd ${user} >/dev/null && usermod -a -G osh-admin ${user}",
       unless  => "id -nG ${user} | grep -q 'osh-admin'",
       path    => ['/usr/bin', '/bin', '/usr/sbin'],
+      returns => [0, 2],
     }
   }
 
