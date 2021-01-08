@@ -16,7 +16,7 @@ class thebastion::install {
     }
 
     exec { 'Checkout Thebastion':
-      command     => "git -C ${thebastion::bastion_basedir} $(git -C ${thebastion::bastion_basedir} tag | tail -1)",
+      command     => "git -C ${thebastion::bastion_basedir} checkout $(git -C ${thebastion::bastion_basedir} tag | tail -1)",
       path        => ['/usr/bin', '/bin'],
       refreshonly => true,
       subscribe   => Exec['Clone Thebastion'],
