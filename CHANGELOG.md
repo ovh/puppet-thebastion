@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [v1.0.10](https://github.com/ovh/puppet-thebastion/tree/v1.0.10) (2021-01-14)
+
+- [addons] fix http-proxy rights as there is no drop privileges but rather non root User into unitfile instead
+
 ## [v1.0.9](https://github.com/ovh/puppet-thebastion/tree/v1.0.9) (2021-01-08)
 
 - fix: git checkout command
