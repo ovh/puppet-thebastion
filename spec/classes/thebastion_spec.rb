@@ -25,7 +25,7 @@ describe 'thebastion' do
       end
 
       context 'Thebastion Install validation' do
-        it { is_expected.to contain_package('git').with_ensure('present') }
+        it { is_expected.to contain_package('git').with_ensure('installed') }
         it { is_expected.to contain_exec('Clone Thebastion').that_requires('Package[git]') }
         it { is_expected.to contain_exec('Clone Thebastion').with_command('git clone https://github.com/ovh/the-bastion /opt/bastion') }
         it { is_expected.to contain_exec('Checkout Thebastion').that_subscribes_to('Exec[Clone Thebastion]') }
@@ -44,81 +44,81 @@ describe 'thebastion' do
       end
 
       context 'Dependencies Packages installation' do
-        it { is_expected.to contain_package('acl').with_ensure('present') }
-        it { is_expected.to contain_package('bash').with_ensure('present') }
-        it { is_expected.to contain_package('binutils').with_ensure('present') }
-        it { is_expected.to contain_package('cryptsetup').with_ensure('present') }
-        it { is_expected.to contain_package('curl').with_ensure('present') }
-        it { is_expected.to contain_package('expect').with_ensure('present') }
-        it { is_expected.to contain_package('fping').with_ensure('present') }
-        it { is_expected.to contain_package('gnupg').with_ensure('present') }
-        it { is_expected.to contain_package('inotify-tools').with_ensure('present') }
-        it { is_expected.to contain_package('lsof').with_ensure('present') }
-        it { is_expected.to contain_package('mosh').with_ensure('present') }
-        it { is_expected.to contain_package('openssh-server').with_ensure('present') }
-        it { is_expected.to contain_package('pamtester').with_ensure('present') }
-        it { is_expected.to contain_package('rsync').with_ensure('present') }
-        it { is_expected.to contain_package('sudo').with_ensure('present') }
+        it { is_expected.to contain_package('acl').with_ensure('installed') }
+        it { is_expected.to contain_package('bash').with_ensure('installed') }
+        it { is_expected.to contain_package('binutils').with_ensure('installed') }
+        it { is_expected.to contain_package('cryptsetup').with_ensure('installed') }
+        it { is_expected.to contain_package('curl').with_ensure('installed') }
+        it { is_expected.to contain_package('expect').with_ensure('installed') }
+        it { is_expected.to contain_package('fping').with_ensure('installed') }
+        it { is_expected.to contain_package('gnupg').with_ensure('installed') }
+        it { is_expected.to contain_package('inotify-tools').with_ensure('installed') }
+        it { is_expected.to contain_package('lsof').with_ensure('installed') }
+        it { is_expected.to contain_package('mosh').with_ensure('installed') }
+        it { is_expected.to contain_package('openssh-server').with_ensure('installed') }
+        it { is_expected.to contain_package('pamtester').with_ensure('installed') }
+        it { is_expected.to contain_package('rsync').with_ensure('installed') }
+        it { is_expected.to contain_package('sudo').with_ensure('installed') }
         case os_facts[:osfamily]
         when 'Debian'
-          it { is_expected.to contain_package('coreutils').with_ensure('present') }
-          it { is_expected.to contain_package('fortunes-bofh-excuses').with_ensure('present') }
-          it { is_expected.to contain_package('iputils-ping').with_ensure('present') }
-          it { is_expected.to contain_package('libcgi-pm-perl').with_ensure('present') }
-          it { is_expected.to contain_package('libcommon-sense-perl').with_ensure('present') }
-          it { is_expected.to contain_package('libdatetime-perl').with_ensure('present') }
-          it { is_expected.to contain_package('libdbd-sqlite3-perl').with_ensure('present') }
-          it { is_expected.to contain_package('libdigest-sha-perl').with_ensure('present') }
-          it { is_expected.to contain_package('libgnupg-perl').with_ensure('present') }
-          it { is_expected.to contain_package('libjson-perl').with_ensure('present') }
-          it { is_expected.to contain_package('libjson-xs-perl').with_ensure('present') }
-          it { is_expected.to contain_package('liblinux-prctl-perl').with_ensure('present') }
-          it { is_expected.to contain_package('libnet-dns-perl').with_ensure('present') }
-          it { is_expected.to contain_package('libnet-ip-perl').with_ensure('present') }
-          it { is_expected.to contain_package('libnet-netmask-perl').with_ensure('present') }
-          it { is_expected.to contain_package('libnet-server-perl').with_ensure('present') }
-          it { is_expected.to contain_package('libnet-ssleay-perl').with_ensure('present') }
-          it { is_expected.to contain_package('libpam-google-authenticator').with_ensure('present') }
-          it { is_expected.to contain_package('libterm-readkey-perl').with_ensure('present') }
-          it { is_expected.to contain_package('libterm-readline-gnu-perl').with_ensure('present') }
-          it { is_expected.to contain_package('libtimedate-perl').with_ensure('present') }
-          it { is_expected.to contain_package('libwww-perl').with_ensure('present') }
-          it { is_expected.to contain_package('locales').with_ensure('present') }
-          it { is_expected.to contain_package('netcat').with_ensure('present') }
-          it { is_expected.to contain_package('sqlite3').with_ensure('present') }
-          it { is_expected.to contain_package('xz-utils').with_ensure('present') }
+          it { is_expected.to contain_package('coreutils').with_ensure('installed') }
+          it { is_expected.to contain_package('fortunes-bofh-excuses').with_ensure('installed') }
+          it { is_expected.to contain_package('iputils-ping').with_ensure('installed') }
+          it { is_expected.to contain_package('libcgi-pm-perl').with_ensure('installed') }
+          it { is_expected.to contain_package('libcommon-sense-perl').with_ensure('installed') }
+          it { is_expected.to contain_package('libdatetime-perl').with_ensure('installed') }
+          it { is_expected.to contain_package('libdbd-sqlite3-perl').with_ensure('installed') }
+          it { is_expected.to contain_package('libdigest-sha-perl').with_ensure('installed') }
+          it { is_expected.to contain_package('libgnupg-perl').with_ensure('installed') }
+          it { is_expected.to contain_package('libjson-perl').with_ensure('installed') }
+          it { is_expected.to contain_package('libjson-xs-perl').with_ensure('installed') }
+          it { is_expected.to contain_package('liblinux-prctl-perl').with_ensure('installed') }
+          it { is_expected.to contain_package('libnet-dns-perl').with_ensure('installed') }
+          it { is_expected.to contain_package('libnet-ip-perl').with_ensure('installed') }
+          it { is_expected.to contain_package('libnet-netmask-perl').with_ensure('installed') }
+          it { is_expected.to contain_package('libnet-server-perl').with_ensure('installed') }
+          it { is_expected.to contain_package('libnet-ssleay-perl').with_ensure('installed') }
+          it { is_expected.to contain_package('libpam-google-authenticator').with_ensure('installed') }
+          it { is_expected.to contain_package('libterm-readkey-perl').with_ensure('installed') }
+          it { is_expected.to contain_package('libterm-readline-gnu-perl').with_ensure('installed') }
+          it { is_expected.to contain_package('libtimedate-perl').with_ensure('installed') }
+          it { is_expected.to contain_package('libwww-perl').with_ensure('installed') }
+          it { is_expected.to contain_package('locales').with_ensure('installed') }
+          it { is_expected.to contain_package('netcat').with_ensure('installed') }
+          it { is_expected.to contain_package('sqlite3').with_ensure('installed') }
+          it { is_expected.to contain_package('xz-utils').with_ensure('installed') }
           if (os_facts[:os]['name'] == 'Ubuntu' && ['14.04', '16.04'].include?(os_facts[:os]['release']['major'])) ||
              (os_facts[:os]['name'] == 'Debian' && os_facts[:os]['release']['major'] == '8')
-            it { is_expected.to contain_package('openssh-blacklist').with_ensure('present') }
-            it { is_expected.to contain_package('openssh-blacklist-extra').with_ensure('present') }
+            it { is_expected.to contain_package('openssh-blacklist').with_ensure('installed') }
+            it { is_expected.to contain_package('openssh-blacklist-extra').with_ensure('installed') }
           end
         when 'RedHat'
-          it { is_expected.to contain_package('cracklib-dicts').with_ensure('present') }
-          it { is_expected.to contain_package('google-authenticator').with_ensure('present') }
-          it { is_expected.to contain_package('nc').with_ensure('present') }
-          it { is_expected.to contain_package('passwd').with_ensure('present') }
-          it { is_expected.to contain_package('perl-CGI').with_ensure('present') }
-          it { is_expected.to contain_package('perl-DateTime').with_ensure('present') }
-          it { is_expected.to contain_package('perl-DBD-SQLite').with_ensure('present') }
-          it { is_expected.to contain_package('perl-Digest').with_ensure('present') }
-          it { is_expected.to contain_package('perl-JSON').with_ensure('present') }
-          it { is_expected.to contain_package('perl-JSON-XS').with_ensure('present') }
-          it { is_expected.to contain_package('perl-libwww-perl').with_ensure('present') }
-          it { is_expected.to contain_package('perl-Net-DNS').with_ensure('present') }
-          it { is_expected.to contain_package('perl-Net-IP').with_ensure('present') }
-          it { is_expected.to contain_package('perl-Net-Netmask').with_ensure('present') }
-          it { is_expected.to contain_package('perl-Net-Server').with_ensure('present') }
-          it { is_expected.to contain_package('perl-Sys-Syslog').with_ensure('present') }
-          it { is_expected.to contain_package('perl-TermReadKey').with_ensure('present') }
-          it { is_expected.to contain_package('perl-Term-ReadLine-Gnu').with_ensure('present') }
-          it { is_expected.to contain_package('perl(Test::More)').with_ensure('present') }
-          it { is_expected.to contain_package('perl-TimeDate').with_ensure('present') }
-          it { is_expected.to contain_package('perl-Time-HiRes').with_ensure('present') }
-          it { is_expected.to contain_package('perl-Time-Piece').with_ensure('present') }
-          it { is_expected.to contain_package('qrencode-libs').with_ensure('present') }
-          it { is_expected.to contain_package('sqlite').with_ensure('present') }
-          it { is_expected.to contain_package('which').with_ensure('present') }
-          it { is_expected.to contain_package('xz').with_ensure('present') }
+          it { is_expected.to contain_package('cracklib-dicts').with_ensure('installed') }
+          it { is_expected.to contain_package('google-authenticator').with_ensure('installed') }
+          it { is_expected.to contain_package('nc').with_ensure('installed') }
+          it { is_expected.to contain_package('passwd').with_ensure('installed') }
+          it { is_expected.to contain_package('perl-CGI').with_ensure('installed') }
+          it { is_expected.to contain_package('perl-DateTime').with_ensure('installed') }
+          it { is_expected.to contain_package('perl-DBD-SQLite').with_ensure('installed') }
+          it { is_expected.to contain_package('perl-Digest').with_ensure('installed') }
+          it { is_expected.to contain_package('perl-JSON').with_ensure('installed') }
+          it { is_expected.to contain_package('perl-JSON-XS').with_ensure('installed') }
+          it { is_expected.to contain_package('perl-libwww-perl').with_ensure('installed') }
+          it { is_expected.to contain_package('perl-Net-DNS').with_ensure('installed') }
+          it { is_expected.to contain_package('perl-Net-IP').with_ensure('installed') }
+          it { is_expected.to contain_package('perl-Net-Netmask').with_ensure('installed') }
+          it { is_expected.to contain_package('perl-Net-Server').with_ensure('installed') }
+          it { is_expected.to contain_package('perl-Sys-Syslog').with_ensure('installed') }
+          it { is_expected.to contain_package('perl-TermReadKey').with_ensure('installed') }
+          it { is_expected.to contain_package('perl-Term-ReadLine-Gnu').with_ensure('installed') }
+          it { is_expected.to contain_package('perl(Test::More)').with_ensure('installed') }
+          it { is_expected.to contain_package('perl-TimeDate').with_ensure('installed') }
+          it { is_expected.to contain_package('perl-Time-HiRes').with_ensure('installed') }
+          it { is_expected.to contain_package('perl-Time-Piece').with_ensure('installed') }
+          it { is_expected.to contain_package('qrencode-libs').with_ensure('installed') }
+          it { is_expected.to contain_package('sqlite').with_ensure('installed') }
+          it { is_expected.to contain_package('which').with_ensure('installed') }
+          it { is_expected.to contain_package('xz').with_ensure('installed') }
           if os_facts[:operatingsystemmajrelease] == '7'
             it { is_expected.to contain_package('coreutils') }
             it { is_expected.to contain_package('fortune-mod') }
