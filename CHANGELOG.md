@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## [v1.1.0](https://github.com/ovh/puppet-thebastion/tree/v1.1.0) (2021-12-08)
+
+- [unit tests] fix rspec test to comply with stdlib ensure_package status installed
+- [pdk] update version
+
 ## [v1.0.10](https://github.com/ovh/puppet-thebastion/tree/v1.0.10) (2021-01-14)
 
 - [addons] fix http-proxy rights as there is no drop privileges but rather non root User into unitfile instead
