@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [v1.1.1](https://github.com/ovh/puppet-thebastion/tree/v1.1.1) (2021-12-14)$
+
+- fix: upgrade version on push on forge action
+
 ## [v1.1.0](https://github.com/ovh/puppet-thebastion/tree/v1.1.0) (2021-12-08)
 
 - [unit tests] fix rspec test to comply with stdlib ensure_package status installed
