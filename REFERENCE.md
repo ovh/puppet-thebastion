@@ -103,7 +103,8 @@ Default value: $thebastion::params::account_max_inactive_days
 
 ##### `account_mfapolicy`
 
-Data type: `Enum['enabled','disabled','totp-enforced','password-enforced']`
+Data type: `Enum['enabled','disabled','totp-required',
+  'password-required', 'any-required' ]`
 
 Set a MFA policy for the bastion accounts.
 
