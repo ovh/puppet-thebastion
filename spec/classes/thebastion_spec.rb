@@ -137,7 +137,7 @@ describe 'thebastion' do
             account_external_validation_program:      '$BASEDIR/bin/other/check-active-account-simple.pl',
             account_ext_validation_deny_on_failure:   true,
             account_max_inactive_days:                90,
-            account_mfapolicy:                        'enabled',
+            account_mfapolicy:                        'password-required',
             account_uid_max:                          99_999,
             account_uid_min:                          2000,
             admin_accounts:                           ['john', 'doe'],
@@ -207,7 +207,7 @@ describe 'thebastion' do
           expect(parsed['accountExternalValidationProgram']).to eq('$BASEDIR/bin/other/check-active-account-simple.pl')
           expect(parsed['accountExternalValidationDenyOnFailure']).to be true
           expect(parsed['accountMaxInactiveDays']).to eq(90)
-          expect(parsed['accountMFAPolicy']).to eq('enabled')
+          expect(parsed['accountMFAPolicy']).to eq('password-required')
           expect(parsed['accountUidMax']).to eq(99_999)
           expect(parsed['accountUidMin']).to eq(2000)
           expect(parsed['adminAccounts']).to contain_exactly('john', 'doe')
