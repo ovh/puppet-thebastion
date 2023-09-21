@@ -4,7 +4,6 @@ class thebastion::install {
   assert_private()
 
   if $thebastion::install_thebastion {
-
     # Git is mandatory to clone bastion's repository
     ensure_packages(['git'])
 
@@ -21,11 +20,9 @@ class thebastion::install {
       refreshonly => true,
       subscribe   => Exec['Clone Thebastion'],
     }
-
   }
 
   if $thebastion::install_packages {
     ensure_packages($thebastion::package_list)
   }
-
 }

@@ -59,7 +59,7 @@ class thebastion::params {
         ]
       }
       else {
-        $_additional_packages_list = [ ]
+        $_additional_packages_list = []
       }
     }
     'RedHat': {
@@ -113,19 +113,19 @@ class thebastion::params {
         ]
       }
       else {
-        $_additional_packages_list = [ ]
+        $_additional_packages_list = []
       }
     }
     default : {
-      $_base_package_list        = [ ]
-      $_additional_packages_list = [ ]
+      $_base_package_list        = []
+      $_additional_packages_list = []
     }
   }
 
   $package_list = concat($_base_package_list, $_additional_packages_list)
 
   # Main config parameters
-  $account_create_default_personal_accesses = [ ]
+  $account_create_default_personal_accesses = []
   $account_create_supplementary_groups      = ['osh-accountListEgressKeys']
   $account_expired_message                  = 'Sorry, but your account has expired (#DAYS# days), access denied by policy. Ask an admin to unlock your account.'
   $account_external_validation_program      = '/bin/true'
@@ -134,11 +134,11 @@ class thebastion::params {
   $account_mfapolicy                        = 'enabled'
   $account_uid_max                          = 99999
   $account_uid_min                          = 2000
-  $admin_accounts                           = [ ]
+  $admin_accounts                           = []
   $allowed_egress_ssh_algorithms            = ['rsa', 'ecdsa', 'ed25519']
   $allowed_ingress_ssh_algorithms           = ['rsa', 'ecdsa', 'ed25519']
-  $allowed_networks                         = [ ]
-  $always_active_accounts                   = [ ]
+  $allowed_networks                         = []
+  $always_active_accounts                   = []
   $bastion_basedir                          = '/opt/bastion'
   $bastion_identifier                       = $::fqdn
   $bastion_listen_port                      = 22
@@ -149,18 +149,18 @@ class thebastion::params {
   $default_login                            = ''
   $display_last_login                       = true
   $documentation_url                        = 'https://ovh.github.io/the-bastion/'
-  $egress_keys_from                         = [ ]
+  $egress_keys_from                         = []
   $enable_account_access_log                = true
   $enable_account_sql_log                   = true
   $enable_global_access_log                 = true
   $enable_global_sql_log                    = true
   $enable_syslog                            = true
-  $forbidden_networks                       = [ ]
+  $forbidden_networks                       = []
   $idle_kill_timeout                        = 0
   $idle_lock_timeout                        = 0
-  $ingress_keys_from                        = [ ]
+  $ingress_keys_from                        = []
   $ingress_keys_from_allow_override         = false
-  $ingress_to_egress_rules                  = [ ]
+  $ingress_to_egress_rules                  = []
   $interactive_mode_allowed                 = true
   $interactive_mode_timeout                 = 60
   $keyboard_interactive_allowed             = false
@@ -172,7 +172,7 @@ class thebastion::params {
   $mfa_password_max_days                    = 90
   $mfa_password_min_days                    = 0
   $mfa_password_warn_days                   = 15
-  $mfa_post_command                         = [ ]
+  $mfa_post_command                         = []
   $mosh_allowed                             = false
   $mosh_command_line                        = ''
   $mosh_timeout_network                     = 86400
@@ -182,11 +182,11 @@ class thebastion::params {
   $remote_command_escape_by_default         = false
   $ssh_client_debug_level                   = 0
   $ssh_client_has_option_e                  = false
-  $super_owner_accounts                     = [ ]
+  $super_owner_accounts                     = []
   $syslog_description                       = 'bastion'
   $syslog_facility                          = 'local7'
   $telnet_allowed                           = false
-  $ttyrec_additional_parameters             = [ ]
+  $ttyrec_additional_parameters             = []
   $ttyrec_filename_format                   = '%Y-%m-%d.%H-%M-%S.#usec#.&uniqid.ttyrec'
   $ttyrec_group_id_offset                   = 100000
   $warn_before_kill_seconds                 = 0
@@ -224,7 +224,7 @@ class thebastion::params {
   $piv_grace_reaper_syslog                  = undef
   $sync_watcher_enabled                     = false
   $sync_watcher_logdir                      = undef
-  $sync_watcher_remote_host_list            = [ ]
+  $sync_watcher_remote_host_list            = []
   $sync_watcher_remote_user                 = ''
   $sync_watcher_rsh_cmd                     = ''
   $sync_watcher_syslog                      = ''
