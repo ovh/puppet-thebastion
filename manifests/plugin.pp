@@ -7,7 +7,6 @@
 define thebastion::plugin (
   Hash $configuration = {}
 ) {
-
   # This check exists because of /etc/bastion directory creation
   if ! defined(Class['thebastion']) {
     fail('You must include the thebastion base class before using plugin defined resource')

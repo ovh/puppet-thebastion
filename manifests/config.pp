@@ -177,5 +177,4 @@ class thebastion::config {
     content => epp('thebastion/bastion_conf_footer.epp'),
     order   => '800',
   }
-
 }

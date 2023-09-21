@@ -235,7 +235,7 @@ class thebastion (
   Boolean $account_ext_validation_deny_on_failure                                   = $thebastion::params::account_ext_validation_deny_on_failure,
   Integer[0,default] $account_max_inactive_days                                     = $thebastion::params::account_max_inactive_days,
   Enum['enabled','disabled','totp-required',
-  'password-required', 'any-required' ] $account_mfapolicy                          = $thebastion::params::account_mfapolicy,
+  'password-required', 'any-required'] $account_mfapolicy                           = $thebastion::params::account_mfapolicy,
   Integer[1001,default] $account_uid_max                                            = $thebastion::params::account_uid_max,
   Integer[1000,default] $account_uid_min                                            = $thebastion::params::account_uid_min,
   Array $admin_accounts                                                             = $thebastion::params::admin_accounts,
@@ -335,7 +335,6 @@ class thebastion (
   String $sync_watcher_syslog                                                       = $thebastion::params::sync_watcher_syslog,
   Integer[0,default] $sync_watcher_timeout                                          = $thebastion::params::sync_watcher_timeout,
 ) inherits thebastion::params {
-
   contain ::thebastion::install
   contain ::thebastion::config
   contain ::thebastion::addons
