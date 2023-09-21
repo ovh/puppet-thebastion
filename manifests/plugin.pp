@@ -14,13 +14,13 @@ define thebastion::plugin (
 
   $plugin_config_file = "/etc/bastion/plugin.${title}.conf"
 
-  if has_key($configuration, 'disabled') {
+  if ('disabled'  in $configuration) {
     assert_type(Boolean, $configuration['disabled']) |$expected, $actual| {
       fail("disabled configuration in a plugin must be Boolean. Expected ${expected} got ${actual}")
     }
   }
 
-  if has_key($configuration, 'mfa_required') {
+  if ('mfa_required' in $configuration) {
     assert_type(Enum['password','totp','any','none'], $configuration['mfa_required']) |$expected, $actual| {
       fail("mfa_required configuration in a plugin must have value in password totp any none. Expected ${expected} got ${actual}")
     }
