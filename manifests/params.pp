@@ -43,7 +43,6 @@ class thebastion::params {
         'locales',
         'lsof',
         'mosh',
-        'netcat',
         'openssh-server',
         'pamtester',
         'rsync',
@@ -56,10 +55,13 @@ class thebastion::params {
         $_additional_packages_list = [
           'openssh-blacklist',
           'openssh-blacklist-extra',
+          'netcat'
         ]
       }
       else {
-        $_additional_packages_list = []
+        $_additional_packages_list = [
+          'netcat-traditional'
+        ]
       }
     }
     'RedHat': {

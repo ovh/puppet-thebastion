@@ -84,13 +84,15 @@ describe 'thebastion' do
           it { is_expected.to contain_package('libtimedate-perl').with_ensure('installed') }
           it { is_expected.to contain_package('libwww-perl').with_ensure('installed') }
           it { is_expected.to contain_package('locales').with_ensure('installed') }
-          it { is_expected.to contain_package('netcat').with_ensure('installed') }
           it { is_expected.to contain_package('sqlite3').with_ensure('installed') }
           it { is_expected.to contain_package('xz-utils').with_ensure('installed') }
           if (os_facts[:os]['name'] == 'Ubuntu' && ['14.04', '16.04'].include?(os_facts[:os]['release']['major'])) ||
              (os_facts[:os]['name'] == 'Debian' && os_facts[:os]['release']['major'] == '8')
             it { is_expected.to contain_package('openssh-blacklist').with_ensure('installed') }
             it { is_expected.to contain_package('openssh-blacklist-extra').with_ensure('installed') }
+            it { is_expected.to contain_package('netcat').with_ensure('installed') }
+          else
+            it { is_expected.to contain_package('netcat-traditional').with_ensure('installed') }
           end
         when 'RedHat'
           it { is_expected.to contain_package('cracklib-dicts').with_ensure('installed') }
