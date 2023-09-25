@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [v1.1.3](https://github.com/ovh/puppet-thebastion/tree/v1.1.3) (2023-09-25)
+
+- fix: netcat is now netcat-traditional for recent Debian and Ubuntu versions
+
 ## [v1.1.2](https://github.com/ovh/puppet-thebastion/tree/v1.1.2) (2022-02-01)
 
 - fix: Correct accountMFAPolicy Enum to be compliant with bastion validation
