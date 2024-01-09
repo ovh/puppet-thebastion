@@ -29,6 +29,7 @@ class thebastion::config {
     'defaultAccountEgressKeySize'            => $thebastion::default_account_egress_key_size,
     'defaultLogin'                           => $thebastion::default_login,
     'displayLastLogin'                       => $thebastion::display_last_login,
+    'dnsLevel'                               => $thebastion::dns_level,
     'documentationURL'                       => $thebastion::documentation_url,
     'egressKeysFrom'                         => $thebastion::egress_keys_from,
     'enableAccountAccessLog'                 => $thebastion::enable_account_access_log,
@@ -70,6 +71,7 @@ class thebastion::config {
     'ttyrecAdditionalParameters'             => $thebastion::ttyrec_additional_parameters,
     'ttyrecFilenameFormat'                   => $thebastion::ttyrec_filename_format,
     'ttyrecGroupIdOffset'                    => $thebastion::ttyrec_group_id_offset,
+    'ttyrecStealthStdoutPattern'             => $thebastion::ttyrec_stealth_stdout_pattern,
     'warnBeforeKillSeconds'                  => $thebastion::warn_before_kill_seconds,
     'warnBeforeLockSeconds'                  => $thebastion::warn_before_lock_seconds,
   }

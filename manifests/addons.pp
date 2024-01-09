@@ -138,8 +138,8 @@ class thebastion::addons {
     group   => 'root',
     mode    => '0600',
     content => epp('thebastion/addons/osh-sync-watcher.sh.epp', {
-      enabled          => $sync_watcher_boolean_to_int,
-      remote_host_list => $thebastion::sync_watcher_remote_host_list.join(' '),
+        enabled          => $sync_watcher_boolean_to_int,
+        remote_host_list => $thebastion::sync_watcher_remote_host_list.join(' '),
     }),
   }
 
