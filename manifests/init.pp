@@ -58,6 +58,8 @@
 #   The default remote user to use for egress ssh connections where no user has been specified by bastion's caller
 # @param display_last_login
 #   Whether to display last login information on connection
+# @param dns_level
+#   Manage DNS Level resolution, 0 being no resolution, 1 forced resolution, 2 full resolution
 # @param documentation_url
 #   The URL of the documentation where users will be pointed to, for example when displaying help
 # @param egress_keys_from
@@ -142,6 +144,8 @@
 #   Sets the filename format of the output files of ttyrec for a given session
 # @param ttyrec_group_id_offset
 #   Offset to apply on user group uid to create -tty group
+# @param ttyrec_stealth_stdout_pattern
+#   Regex which will be matched against a potential remote command specified when connecting through SSH to a remote server. If the regex matches, then we'll instruct ttyrec to NOT record stdout for this session.
 # @param warn_before_kill_seconds
 #   Seconds before idleKillTimeout where the user will receive a warning message about the upcoming kill of his session
 # @param warn_before_lock_seconds
@@ -252,6 +256,7 @@ class thebastion (
   Integer[256,8192] $default_account_egress_key_size                                = $thebastion::params::default_account_egress_key_size,
   String $default_login                                                             = $thebastion::params::default_login,
   Boolean $display_last_login                                                       = $thebastion::params::display_last_login,
+  Integer[0,2] $dns_level                                                           = $thebastion::params::dns_level,
   Stdlib::HTTPUrl $documentation_url                                                = $thebastion::params::documentation_url,
   Array[Stdlib::IP::Address::V4] $egress_keys_from                                  = $thebastion::params::egress_keys_from,
   Boolean $enable_account_access_log                                                = $thebastion::params::enable_account_access_log,
@@ -294,6 +299,7 @@ class thebastion (
   Array $ttyrec_additional_parameters                                               = $thebastion::params::ttyrec_additional_parameters,
   String $ttyrec_filename_format                                                    = $thebastion::params::ttyrec_filename_format,
   Integer[1002,default] $ttyrec_group_id_offset                                     = $thebastion::params::ttyrec_group_id_offset,
+  Optional[String] $ttyrec_stealth_stdout_pattern                                   = $thebastion::params::ttyrec_stealth_stdout_pattern,
   Integer[0,default] $warn_before_kill_seconds                                      = $thebastion::params::warn_before_kill_seconds,
   Integer[0,default] $warn_before_lock_seconds                                      = $thebastion::params::warn_before_lock_seconds,
 

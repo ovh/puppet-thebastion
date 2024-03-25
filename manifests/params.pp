@@ -55,12 +55,12 @@ class thebastion::params {
         $_additional_packages_list = [
           'openssh-blacklist',
           'openssh-blacklist-extra',
-          'netcat'
+          'netcat',
         ]
       }
       else {
         $_additional_packages_list = [
-          'netcat-traditional'
+          'netcat-traditional',
         ]
       }
     }
@@ -150,6 +150,7 @@ class thebastion::params {
   $default_account_egress_key_size          = 256
   $default_login                            = ''
   $display_last_login                       = true
+  $dns_level                                = 2
   $documentation_url                        = 'https://ovh.github.io/the-bastion/'
   $egress_keys_from                         = []
   $enable_account_access_log                = true
@@ -191,6 +192,7 @@ class thebastion::params {
   $ttyrec_additional_parameters             = []
   $ttyrec_filename_format                   = '%Y-%m-%d.%H-%M-%S.#usec#.&uniqid.ttyrec'
   $ttyrec_group_id_offset                   = 100000
+  $ttyrec_stealth_stdout_pattern            = undef
   $warn_before_kill_seconds                 = 0
   $warn_before_lock_seconds                 = 0
 

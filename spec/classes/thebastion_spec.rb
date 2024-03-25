@@ -155,6 +155,7 @@ describe 'thebastion' do
             default_account_egress_key_size:          4096,
             default_login:                            'root',
             display_last_login:                       false,
+            dns_level:                                1,
             documentation_url:                        'http://my.cutiedoc.com/bastion/',
             egress_keys_from:                         ['127.0.0.1', '192.0.1.0/24'],
             enable_account_access_log:                false,
@@ -196,6 +197,7 @@ describe 'thebastion' do
             ttyrec_additional_parameters:             ['my', 'little', 'param'],
             ttyrec_filename_format:                   '%Y-%m-%d',
             ttyrec_group_id_offset:                   100_000,
+            ttyrec_stealth_stdout_pattern:            '[A-Z]',
             warn_before_kill_seconds:                 42,
             warn_before_lock_seconds:                 41,
           }
@@ -224,6 +226,7 @@ describe 'thebastion' do
           expect(parsed['defaultAccountEgressKeySize']).to eq(4096)
           expect(parsed['defaultLogin']).to eq('root')
           expect(parsed['displayLastLogin']).to be false
+          expect(parsed['dnsLevel']).to eq(1)
           expect(parsed['documentationURL']).to eq('http://my.cutiedoc.com/bastion/')
           expect(parsed['enableAccountAccessLog']).to be false
           expect(parsed['enableAccountSqlLog']).to be false
@@ -265,6 +268,7 @@ describe 'thebastion' do
           expect(parsed['ttyrecAdditionalParameters']).to contain_exactly('my', 'little', 'param')
           expect(parsed['ttyrecFilenameFormat']).to eq('%Y-%m-%d')
           expect(parsed['ttyrecGroupIdOffset']).to eq(100_000)
+          expect(parsed['ttyrecStealthStdoutPattern']).to eq('[A-Z]')
           expect(parsed['warnBeforeKillSeconds']).to eq(42)
           expect(parsed['warnBeforeLockSeconds']).to eq(41)
         end
