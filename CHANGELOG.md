@@ -2,7 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
-## [v1.1.4](https://github.com/ovh/puppet-thebastion/tree/v1.1.3) (2024-03-25)
+## [v1.1.5](https://github.com/ovh/puppet-thebastion/tree/v1.1.5) (2024-04-22)
+
+  - fix: dns level is called dns_support_level
+
+## [v1.1.4](https://github.com/ovh/puppet-thebastion/tree/v1.1.4) (2024-03-25)
 
   - enh : Add ttyrecStealthStdoutPattern and dnsLevel parameter (#14)
   - fix references.md github action
