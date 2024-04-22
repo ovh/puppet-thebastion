@@ -150,7 +150,7 @@ class thebastion::params {
   $default_account_egress_key_size          = 256
   $default_login                            = ''
   $display_last_login                       = true
-  $dns_level                                = 2
+  $dns_support_level                        = 2
   $documentation_url                        = 'https://ovh.github.io/the-bastion/'
   $egress_keys_from                         = []
   $enable_account_access_log                = true

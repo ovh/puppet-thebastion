@@ -155,7 +155,7 @@ describe 'thebastion' do
             default_account_egress_key_size:          4096,
             default_login:                            'root',
             display_last_login:                       false,
-            dns_level:                                1,
+            dns_support_level:                        1,
             documentation_url:                        'http://my.cutiedoc.com/bastion/',
             egress_keys_from:                         ['127.0.0.1', '192.0.1.0/24'],
             enable_account_access_log:                false,
@@ -226,7 +226,7 @@ describe 'thebastion' do
           expect(parsed['defaultAccountEgressKeySize']).to eq(4096)
           expect(parsed['defaultLogin']).to eq('root')
           expect(parsed['displayLastLogin']).to be false
-          expect(parsed['dnsLevel']).to eq(1)
+          expect(parsed['dnsSupportLevel']).to eq(1)
           expect(parsed['documentationURL']).to eq('http://my.cutiedoc.com/bastion/')
           expect(parsed['enableAccountAccessLog']).to be false
           expect(parsed['enableAccountSqlLog']).to be false
@@ -303,6 +303,7 @@ describe 'thebastion' do
             default_account_egress_key_size:          16_384,
             default_login:                            42,
             display_last_login:                       'yes',
+            dns_support_level:                        42,
             documentation_url:                        'https:/my.sypertypo.org/bastion/',
             enable_account_access_log:                'yes',
             enable_account_sql_log:                   'yes',
@@ -372,6 +373,7 @@ describe 'thebastion' do
         it { is_expected.to compile.and_raise_error(%r{default_login}) }
         it { is_expected.to compile.and_raise_error(%r{display_last_login}) }
         it { is_expected.to compile.and_raise_error(%r{documentation_url}) }
+        it { is_expected.to compile.and_raise_error(%r{dns_support_level}) }
         it { is_expected.to compile.and_raise_error(%r{egress_keys_from}) }
         it { is_expected.to compile.and_raise_error(%r{enable_account_access_log}) }
         it { is_expected.to compile.and_raise_error(%r{enable_account_sql_log}) }
