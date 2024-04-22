@@ -58,7 +58,7 @@
 #   The default remote user to use for egress ssh connections where no user has been specified by bastion's caller
 # @param display_last_login
 #   Whether to display last login information on connection
-# @param dns_level
+# @param dns_support_level
 #   Manage DNS Level resolution, 0 being no resolution, 1 forced resolution, 2 full resolution
 # @param documentation_url
 #   The URL of the documentation where users will be pointed to, for example when displaying help
@@ -256,7 +256,7 @@ class thebastion (
   Integer[256,8192] $default_account_egress_key_size                                = $thebastion::params::default_account_egress_key_size,
   String $default_login                                                             = $thebastion::params::default_login,
   Boolean $display_last_login                                                       = $thebastion::params::display_last_login,
-  Integer[0,2] $dns_level                                                           = $thebastion::params::dns_level,
+  Integer[0,2] $dns_support_level                                                   = $thebastion::params::dns_support_level,
   Stdlib::HTTPUrl $documentation_url                                                = $thebastion::params::documentation_url,
   Array[Stdlib::IP::Address::V4] $egress_keys_from                                  = $thebastion::params::egress_keys_from,
   Boolean $enable_account_access_log                                                = $thebastion::params::enable_account_access_log,

@@ -29,7 +29,7 @@ class thebastion::config {
     'defaultAccountEgressKeySize'            => $thebastion::default_account_egress_key_size,
     'defaultLogin'                           => $thebastion::default_login,
     'displayLastLogin'                       => $thebastion::display_last_login,
-    'dnsLevel'                               => $thebastion::dns_level,
+    'dnsSupportLevel'                        => $thebastion::dns_support_level,
     'documentationURL'                       => $thebastion::documentation_url,
     'egressKeysFrom'                         => $thebastion::egress_keys_from,
     'enableAccountAccessLog'                 => $thebastion::enable_account_access_log,

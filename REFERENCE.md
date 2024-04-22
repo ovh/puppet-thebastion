@@ -239,13 +239,13 @@ Whether to display last login information on connection
 
 Default value: `$thebastion::params::display_last_login`
 
-##### `dns_level`
+##### `dns_support_level`
 
 Data type: `Integer[0,2]`
 
 Manage DNS Level resolution, 0 being no resolution, 1 forced resolution, 2 full resolution
 
-Default value: `$thebastion::params::dns_level`
+Default value: `$thebastion::params::dns_support_level`
 
 ##### `documentation_url`
 
