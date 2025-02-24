@@ -214,13 +214,14 @@ class thebastion::params {
   $encrypt_rsync_signing_key                = undef
   $encrypt_rsync_signing_key_passphrase     = undef
   $encrypt_rsync_syslog_facility            = undef
+  $http_proxy_allowed_egress_protocols      = ['https']
   $http_proxy_ciphers                       = ''
   $http_proxy_enabled                       = false
   $http_proxy_insecure                      = false
-  $http_proxy_min_servers                   = 8
-  $http_proxy_min_spare_servers             = 8
   $http_proxy_max_servers                   = 32
   $http_proxy_max_spare_servers             = 16
+  $http_proxy_min_servers                   = 8
+  $http_proxy_min_spare_servers             = 8
   $http_proxy_port                          = 8443
   $http_proxy_ssl_certificate               = '/etc/ssl/certs/ssl-cert-snakeoil.pem'
   $http_proxy_ssl_key                       = '/etc/ssl/private/ssl-cert-snakeoil.key'
