@@ -831,6 +831,14 @@ Timeout delay (in seconds) for the connection between the bastion and the device
 
 Default value: `$thebastion::params::http_proxy_timeout`
 
+##### `http_proxy_allowed_egress_protocols`
+
+Data type: `Array[String]`
+
+List of the allowed protocols to be used on the egress side of the HTTPS proxy, supported protocols: https, http
+
+Default value: `$thebastion::params::http_proxy_allowed_egress_protocols`
+
 ##### `piv_grace_reaper_syslog`
 
 Data type: `Optional[String]`

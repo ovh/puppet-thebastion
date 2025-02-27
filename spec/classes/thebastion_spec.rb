@@ -637,29 +637,31 @@ describe 'thebastion' do
       context 'osh-http-proxy configuration validation' do
         let(:params) do
           {
+            http_proxy_allowed_egress_protocols: ['http', 'https'],
             http_proxy_ciphers:           'ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384',
             http_proxy_enabled:           true,
             http_proxy_insecure:          true,
-            http_proxy_min_servers:       20,
-            http_proxy_min_spare_servers: 12,
             http_proxy_max_servers:       20,
             http_proxy_max_spare_servers: 18,
+            http_proxy_min_servers:       20,
+            http_proxy_min_spare_servers: 12,
             http_proxy_port:              7,
             http_proxy_ssl_certificate:   '/tmp/certs/mycert',
             http_proxy_ssl_key:           '/tmp/certs/mykey',
-            http_proxy_timeout:           85,
+            http_proxy_timeout:           85
           }
         end
 
         it 'tests valid parameters input' do
           parsed = JSON.parse(catalogue.resource('concat::fragment', 'thebastion::addons::osh-http-proxy-conf').send(:parameters)[:content])
+          expect(parsed['allowed_egress_protocols']).to contain_exactly('http', 'https')
           expect(parsed['ciphers']).to eq('ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384')
           expect(parsed['enabled']).to be true
           expect(parsed['insecure']).to be true
-          expect(parsed['min_servers']).to eq(20)
-          expect(parsed['min_spare_servers']).to eq(12)
           expect(parsed['max_servers']).to eq(20)
           expect(parsed['max_spare_servers']).to eq(18)
+          expect(parsed['min_servers']).to eq(20)
+          expect(parsed['min_spare_servers']).to eq(12)
           expect(parsed['port']).to eq(7)
           expect(parsed['ssl_certificate']).to eq('/tmp/certs/mycert')
           expect(parsed['ssl_key']).to eq('/tmp/certs/mykey')
