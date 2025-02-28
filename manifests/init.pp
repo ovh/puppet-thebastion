@@ -90,6 +90,10 @@
 #   Whether to activate interactive mode
 # @param interactive_mode_timeout
 #   Idle seconds after which the user is disconnected from the bastion when in interactive mode
+# @param ipv4_allowed
+#   Whether to allow IPv4 hosts to be accessed on the egress side
+# @param ipv6_allowed
+#   Whether to allow IPv6 hosts to be accessed on the egress side
 # @param keyboard_interactive_allowed
 #   Whether to allow keyboard-interactive authentication when publickey auth is requested for egress connections, this is needed e.g. for 2FA
 # @param maximum_ingress_rsa_key_size
@@ -126,6 +130,8 @@
 #   Whether the instance of the bastion is slave or not
 # @param remote_command_escape_by_default
 #   Whether to escape simple quotes in remote commands by default
+# @param ssh_add_keys_to_agent_allowed
+#   Whether to allow an ssh-agent to be spawned and forwarded to the egress session when specifically requested with the '--forward-agent' or '-x' flag, with the egress key added to the agent
 # @param ssh_client_debug_level
 #   The number of -v that will be added to the ssh client command line when starting a session
 # @param ssh_client_has_option_e
@@ -274,6 +280,8 @@ class thebastion (
   Array $ingress_to_egress_rules                                                    = $thebastion::params::ingress_to_egress_rules,
   Boolean $interactive_mode_allowed                                                 = $thebastion::params::interactive_mode_allowed,
   Integer[0,default] $interactive_mode_timeout                                      = $thebastion::params::interactive_mode_timeout,
+  Boolean $ipv4_allowed                                                             = $thebastion::params::ipv4_allowed,
+  Boolean $ipv6_allowed                                                             = $thebastion::params::ipv6_allowed,
   Boolean $keyboard_interactive_allowed                                             = $thebastion::params::keyboard_interactive_allowed,
   Integer[0,default] $maximum_ingress_rsa_key_size                                  = $thebastion::params::maximum_ingress_rsa_key_size,
   Integer[0,default] $maximum_egress_rsa_key_size                                   = $thebastion::params::maximum_egress_rsa_key_size,
@@ -292,6 +300,7 @@ class thebastion (
   Hash $plugins                                                                     = {},
   Boolean $read_only_slave_mode                                                     = $thebastion::params::read_only_slave_mode,
   Boolean $remote_command_escape_by_default                                         = $thebastion::params::remote_command_escape_by_default,
+  Boolean $ssh_add_keys_to_agent_allowed                                            = $thebastion::params::ssh_add_keys_to_agent_allowed,
   Integer[0,3] $ssh_client_debug_level                                              = $thebastion::params::ssh_client_debug_level,
   Boolean $ssh_client_has_option_e                                                  = $thebastion::params::ssh_client_has_option_e,
   Array $super_owner_accounts                                                       = $thebastion::params::super_owner_accounts,
