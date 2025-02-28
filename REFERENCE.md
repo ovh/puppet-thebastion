@@ -367,6 +367,22 @@ Idle seconds after which the user is disconnected from the bastion when in inter
 
 Default value: `$thebastion::params::interactive_mode_timeout`
 
+##### `ipv4_allowed`
+
+Data type: `Boolean`
+
+Whether to allow IPv4 hosts to be accessed on the egress side
+
+Default value: `$thebastion::params::ipv4_allowed`
+
+##### `ipv6_allowed`
+
+Data type: `Boolean`
+
+Whether to allow IPv6 hosts to be accessed on the egress side
+
+Default value: `$thebastion::params::ipv6_allowed`
+
 ##### `keyboard_interactive_allowed`
 
 Data type: `Boolean`
@@ -510,6 +526,14 @@ Data type: `Boolean`
 Whether to escape simple quotes in remote commands by default
 
 Default value: `$thebastion::params::remote_command_escape_by_default`
+
+##### `ssh_add_keys_to_agent_allowed`
+
+Data type: `Boolean`
+
+Whether to allow an ssh-agent to be spawned and forwarded to the egress session when specifically requested with the '--forward-agent' or '-x' flag, with the egress key added to the agent
+
+Default value: `$thebastion::params::ssh_add_keys_to_agent_allowed`
 
 ##### `ssh_client_debug_level`
 

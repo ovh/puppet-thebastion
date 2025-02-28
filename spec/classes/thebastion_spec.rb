@@ -136,8 +136,8 @@ describe 'thebastion' do
             account_create_default_personal_accesses: ['ACCOUNT@127.0.0.1', 'root@192.0.2.2/32'],
             account_create_supplementary_groups:      ['osh-accountListEgressKeys', 'osh-realmList'],
             account_expired_message:                  'Hello there',
-            account_external_validation_program:      '$BASEDIR/bin/other/check-active-account-simple.pl',
             account_ext_validation_deny_on_failure:   true,
+            account_external_validation_program:      '$BASEDIR/bin/other/check-active-account-simple.pl',
             account_max_inactive_days:                90,
             account_mfapolicy:                        'password-required',
             account_uid_max:                          99_999,
@@ -166,21 +166,23 @@ describe 'thebastion' do
             forbidden_networks:                       ['192.0.2.3', '192.0.1.0/24'],
             idle_kill_timeout:                        90,
             idle_lock_timeout:                        14,
-            ingress_keys_from_allow_override:         true,
             ingress_keys_from:                        ['192.0.2.4', '192.0.1.0/24'],
+            ingress_keys_from_allow_override:         true,
             ingress_to_egress_rules:                  [[['10.19.0.0/16', '10.15.15.0/24'], ['10.20.0.0/16'], 'ALLOW-EXCLUSIVE']],
             interactive_mode_allowed:                 true,
             interactive_mode_timeout:                 60,
+            ipv4_allowed:                             true,
+            ipv6_allowed:                             false,
             keyboard_interactive_allowed:             true,
-            maximum_ingress_rsa_key_size:             4096,
             maximum_egress_rsa_key_size:              4095,
-            minimum_ingress_rsa_key_size:             2048,
-            minimum_egress_rsa_key_size:              2047,
+            maximum_ingress_rsa_key_size:             4096,
             mfa_password_inactive_days:               5,
             mfa_password_max_days:                    90,
             mfa_password_min_days:                    6,
             mfa_password_warn_days:                   14,
             mfa_post_command:                         ['sudo', '-n', '-u', 'root', '--', '/sbin/pam_tally2', '-u', '%ACCOUNT%', '-r'],
+            minimum_egress_rsa_key_size:              2047,
+            minimum_ingress_rsa_key_size:             2048,
             mosh_allowed:                             true,
             mosh_command_line:                        '-s -p 40000:49999',
             mosh_timeout_network:                     50,
@@ -188,6 +190,7 @@ describe 'thebastion' do
             password_allowed:                         true,
             read_only_slave_mode:                     true,
             remote_command_escape_by_default:         true,
+            ssh_add_keys_to_agent_allowed:            false,
             ssh_client_debug_level:                   2,
             ssh_client_has_option_e:                  true,
             super_owner_accounts:                     ['john', 'doe'],
@@ -205,13 +208,20 @@ describe 'thebastion' do
 
         it 'tests valid parameters input' do
           parsed = JSON.parse(catalogue.resource('concat::fragment', 'thebastion-conf').send(:parameters)[:content])
+          expect(parsed['IPv4Allowed']).to be true
+          expect(parsed['IPv6Allowed']).to be false
+          expect(parsed['MFAPasswordInactiveDays']).to eq(5)
+          expect(parsed['MFAPasswordMaxDays']).to eq(90)
+          expect(parsed['MFAPasswordMinDays']).to eq(6)
+          expect(parsed['MFAPasswordWarnDays']).to eq(14)
+          expect(parsed['MFAPostCommand']).to contain_exactly('sudo', '-n', '-u', 'root', '--', '/sbin/pam_tally2', '-u', '%ACCOUNT%', '-r')
           expect(parsed['accountCreateDefaultPersonalAccesses']).to contain_exactly('ACCOUNT@127.0.0.1', 'root@192.0.2.2/32')
           expect(parsed['accountCreateSupplementaryGroups']).to contain_exactly('osh-accountListEgressKeys', 'osh-realmList')
           expect(parsed['accountExpiredMessage']).to eq('Hello there')
-          expect(parsed['accountExternalValidationProgram']).to eq('$BASEDIR/bin/other/check-active-account-simple.pl')
           expect(parsed['accountExternalValidationDenyOnFailure']).to be true
-          expect(parsed['accountMaxInactiveDays']).to eq(90)
+          expect(parsed['accountExternalValidationProgram']).to eq('$BASEDIR/bin/other/check-active-account-simple.pl')
           expect(parsed['accountMFAPolicy']).to eq('password-required')
+          expect(parsed['accountMaxInactiveDays']).to eq(90)
           expect(parsed['accountUidMax']).to eq(99_999)
           expect(parsed['accountUidMin']).to eq(2000)
           expect(parsed['adminAccounts']).to contain_exactly('john', 'doe')
@@ -228,12 +238,12 @@ describe 'thebastion' do
           expect(parsed['displayLastLogin']).to be false
           expect(parsed['dnsSupportLevel']).to eq(1)
           expect(parsed['documentationURL']).to eq('http://my.cutiedoc.com/bastion/')
+          expect(parsed['egressKeysFrom']).to contain_exactly('127.0.0.1', '192.0.1.0/24')
           expect(parsed['enableAccountAccessLog']).to be false
           expect(parsed['enableAccountSqlLog']).to be false
           expect(parsed['enableGlobalAccessLog']).to be false
           expect(parsed['enableGlobalSqlLog']).to be false
           expect(parsed['enableSyslog']).to be false
-          expect(parsed['egressKeysFrom']).to contain_exactly('127.0.0.1', '192.0.1.0/24')
           expect(parsed['forbiddenNetworks']).to contain_exactly('192.0.2.3', '192.0.1.0/24')
           expect(parsed['idleKillTimeout']).to eq(90)
           expect(parsed['idleLockTimeout']).to eq(14)
@@ -243,15 +253,10 @@ describe 'thebastion' do
           expect(parsed['interactiveModeAllowed']).to be true
           expect(parsed['interactiveModeTimeout']).to eq(60)
           expect(parsed['keyboardInteractiveAllowed']).to be true
-          expect(parsed['maximumIngressRsaKeySize']).to eq(4096)
           expect(parsed['maximumEgressRsaKeySize']).to eq(4095)
-          expect(parsed['minimumIngressRsaKeySize']).to eq(2048)
+          expect(parsed['maximumIngressRsaKeySize']).to eq(4096)
           expect(parsed['minimumEgressRsaKeySize']).to eq(2047)
-          expect(parsed['MFAPasswordInactiveDays']).to eq(5)
-          expect(parsed['MFAPasswordMaxDays']).to eq(90)
-          expect(parsed['MFAPasswordMinDays']).to eq(6)
-          expect(parsed['MFAPasswordWarnDays']).to eq(14)
-          expect(parsed['MFAPostCommand']).to contain_exactly('sudo', '-n', '-u', 'root', '--', '/sbin/pam_tally2', '-u', '%ACCOUNT%', '-r')
+          expect(parsed['minimumIngressRsaKeySize']).to eq(2048)
           expect(parsed['moshAllowed']).to be true
           expect(parsed['moshCommandLine']).to eq('-s -p 40000:49999')
           expect(parsed['moshTimeoutNetwork']).to eq(50)
@@ -259,6 +264,7 @@ describe 'thebastion' do
           expect(parsed['passwordAllowed']).to be true
           expect(parsed['readOnlySlaveMode']).to be true
           expect(parsed['remoteCommandEscapeByDefault']).to be true
+          expect(parsed['sshAddKeysToAgentAllowed']).to be false
           expect(parsed['sshClientDebugLevel']).to eq(2)
           expect(parsed['sshClientHasOptionE']).to be true
           expect(parsed['superOwnerAccounts']).to contain_exactly('john', 'doe')
