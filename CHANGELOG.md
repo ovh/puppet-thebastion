@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## [v1.1.6](https://github.com/ovh/puppet-thebastion/tree/v1.1.6) (2025-03-05)
+
+  - bastion.conf: add ipv4Allowed, ipv6Allowed, sshAddKeysToAgentAllowed (#17)
+  - enh: http proxy: add allowed_egress_protocols config option (#16)
+
 ## [v1.1.5](https://github.com/ovh/puppet-thebastion/tree/v1.1.5) (2024-04-22)
 
   - fix: dns level is called dns_support_level
