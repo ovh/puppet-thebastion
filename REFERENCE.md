@@ -863,6 +863,14 @@ List of the allowed protocols to be used on the egress side of the HTTPS proxy, 
 
 Default value: `$thebastion::params::http_proxy_allowed_egress_protocols`
 
+##### `http_proxy_allowed_methods`
+
+Data type: `Array[String]`
+
+List of the allowed HTTP methods that will be forwarded through the proxy, such as GET, POST, PUT, DELETE, ...
+
+Default value: `$thebastion::params::http_proxy_allowed_methods`
+
 ##### `piv_grace_reaper_syslog`
 
 Data type: `Optional[String]`

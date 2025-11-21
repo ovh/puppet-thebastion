@@ -644,6 +644,7 @@ describe 'thebastion' do
         let(:params) do
           {
             http_proxy_allowed_egress_protocols: ['http', 'https'],
+            http_proxy_allowed_methods:          ['GET', 'PUT'],
             http_proxy_ciphers:           'ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384',
             http_proxy_enabled:           true,
             http_proxy_insecure:          true,
@@ -661,6 +662,7 @@ describe 'thebastion' do
         it 'tests valid parameters input' do
           parsed = JSON.parse(catalogue.resource('concat::fragment', 'thebastion::addons::osh-http-proxy-conf').send(:parameters)[:content])
           expect(parsed['allowed_egress_protocols']).to contain_exactly('http', 'https')
+          expect(parsed['allowed_methods']).to contain_exactly('GET', 'PUT')
           expect(parsed['ciphers']).to eq('ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384')
           expect(parsed['enabled']).to be true
           expect(parsed['insecure']).to be true
