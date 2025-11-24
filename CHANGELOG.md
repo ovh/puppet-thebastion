@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [v1.1.7](https://github.com/ovh/puppet-thebastion/tree/v1.1.6) (2025-11-24)
+
+  - proxy: add allowed_methods option (#18)
+
 ## [v1.1.6](https://github.com/ovh/puppet-thebastion/tree/v1.1.6) (2025-03-05)
 
   - bastion.conf: add ipv4Allowed, ipv6Allowed, sshAddKeysToAgentAllowed (#17)
