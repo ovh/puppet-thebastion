@@ -218,6 +218,7 @@ class thebastion::params {
   $encrypt_rsync_signing_key_passphrase     = undef
   $encrypt_rsync_syslog_facility            = undef
   $http_proxy_allowed_egress_protocols      = ['https']
+  $http_proxy_allowed_methods               = ['GET','POST']
   $http_proxy_ciphers                       = ''
   $http_proxy_enabled                       = false
   $http_proxy_insecure                      = false

@@ -64,6 +64,7 @@ class thebastion::addons {
 
   $http_proxy_conf = {
     'allowed_egress_protocols' => $thebastion::http_proxy_allowed_egress_protocols,
+    'allowed_methods'          => $thebastion::http_proxy_allowed_methods,
     'ciphers'                  => $thebastion::http_proxy_ciphers,
     'enabled'                  => $thebastion::http_proxy_enabled,
     'insecure'                 => $thebastion::http_proxy_insecure,

@@ -217,6 +217,8 @@
 #   Timeout delay (in seconds) for the connection between the bastion and the devices
 # @param http_proxy_allowed_egress_protocols
 #   List of the allowed protocols to be used on the egress side of the HTTPS proxy, supported protocols: https, http
+# @param http_proxy_allowed_methods
+#   List of the allowed HTTP methods that will be forwarded through the proxy, such as GET, POST, PUT, DELETE, ...
 # @param piv_grace_reaper_syslog
 #   Syslog facility to log to if defined
 # @param sync_watcher_enabled
@@ -333,6 +335,7 @@ class thebastion (
   Optional[String] $encrypt_rsync_signing_key_passphrase                            = $thebastion::params::encrypt_rsync_signing_key_passphrase,
   Optional[String] $encrypt_rsync_syslog_facility                                   = $thebastion::params::encrypt_rsync_syslog_facility,
   Array[String] $http_proxy_allowed_egress_protocols                                = $thebastion::params::http_proxy_allowed_egress_protocols,
+  Array[String] $http_proxy_allowed_methods                                         = $thebastion::params::http_proxy_allowed_methods,
   String $http_proxy_ciphers                                                        = $thebastion::params::http_proxy_ciphers,
   Boolean $http_proxy_enabled                                                       = $thebastion::params::http_proxy_enabled,
   Boolean $http_proxy_insecure                                                      = $thebastion::params::http_proxy_insecure,
