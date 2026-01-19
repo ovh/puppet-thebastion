@@ -142,7 +142,7 @@ class thebastion::params {
   $allowed_networks                         = []
   $always_active_accounts                   = []
   $bastion_basedir                          = '/opt/bastion'
-  $bastion_identifier                       = $::fqdn
+  $bastion_identifier                       = $facts['networking']['fqdn']
   $bastion_listen_port                      = 22
   $bastion_name                             = 'bst'
   $debug                                    = false
