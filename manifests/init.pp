@@ -356,9 +356,9 @@ class thebastion (
   String $sync_watcher_syslog                                                       = $thebastion::params::sync_watcher_syslog,
   Integer[0,default] $sync_watcher_timeout                                          = $thebastion::params::sync_watcher_timeout,
 ) inherits thebastion::params {
-  contain ::thebastion::install
-  contain ::thebastion::config
-  contain ::thebastion::addons
+  contain thebastion::install
+  contain thebastion::config
+  contain thebastion::addons
 
   create_resources('thebastion::plugin', $plugins)
 
