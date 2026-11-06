@@ -63,19 +63,23 @@ class thebastion::addons {
   # HTTP Proxy
 
   $http_proxy_conf = {
-    'allowed_egress_protocols' => $thebastion::http_proxy_allowed_egress_protocols,
-    'allowed_methods'          => $thebastion::http_proxy_allowed_methods,
-    'ciphers'                  => $thebastion::http_proxy_ciphers,
-    'enabled'                  => $thebastion::http_proxy_enabled,
-    'insecure'                 => $thebastion::http_proxy_insecure,
-    'max_servers'              => $thebastion::http_proxy_max_servers,
-    'max_spare_servers'        => $thebastion::http_proxy_max_spare_servers,
-    'min_servers'              => $thebastion::http_proxy_min_servers,
-    'min_spare_servers'        => $thebastion::http_proxy_min_spare_servers,
-    'port'                     => $thebastion::http_proxy_port,
-    'ssl_certificate'          => $thebastion::http_proxy_ssl_certificate,
-    'ssl_key'                  => $thebastion::http_proxy_ssl_key,
-    'timeout'                  => $thebastion::http_proxy_timeout,
+    'allow_downgrade'           => $thebastion::http_proxy_allow_downgrade,
+    'allow_redirects'           => $thebastion::http_proxy_allow_redirects,
+    'allowed_egress_protocols'  => $thebastion::http_proxy_allowed_egress_protocols,
+    'allowed_methods'           => $thebastion::http_proxy_allowed_methods,
+    'ciphers'                   => $thebastion::http_proxy_ciphers,
+    'downgraded_egress_ciphers' => $thebastion::http_proxy_downgraded_egress_ciphers,
+    'egress_ciphers'            => $thebastion::http_proxy_egress_ciphers,
+    'enabled'                   => $thebastion::http_proxy_enabled,
+    'insecure'                  => $thebastion::http_proxy_insecure,
+    'max_servers'               => $thebastion::http_proxy_max_servers,
+    'max_spare_servers'         => $thebastion::http_proxy_max_spare_servers,
+    'min_servers'               => $thebastion::http_proxy_min_servers,
+    'min_spare_servers'         => $thebastion::http_proxy_min_spare_servers,
+    'port'                      => $thebastion::http_proxy_port,
+    'ssl_certificate'           => $thebastion::http_proxy_ssl_certificate,
+    'ssl_key'                   => $thebastion::http_proxy_ssl_key,
+    'timeout'                   => $thebastion::http_proxy_timeout,
   }
 
   concat { '/etc/bastion/osh-http-proxy.conf':

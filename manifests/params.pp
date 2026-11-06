@@ -219,7 +219,11 @@ class thebastion::params {
   $encrypt_rsync_syslog_facility            = undef
   $http_proxy_allowed_egress_protocols      = ['https']
   $http_proxy_allowed_methods               = ['GET','POST']
+  $http_proxy_allow_downgrade               = true
+  $http_proxy_allow_redirects               = 'same-host'
   $http_proxy_ciphers                       = ''
+  $http_proxy_downgraded_egress_ciphers     = ''
+  $http_proxy_egress_ciphers                = ''
   $http_proxy_enabled                       = false
   $http_proxy_insecure                      = false
   $http_proxy_max_servers                   = 32
