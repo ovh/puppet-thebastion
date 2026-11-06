@@ -645,6 +645,10 @@ describe 'thebastion' do
           {
             http_proxy_allowed_egress_protocols: ['http', 'https'],
             http_proxy_allowed_methods:          ['GET', 'PUT'],
+            http_proxy_allow_downgrade:          false,
+            http_proxy_allow_redirects:          'none',
+            http_proxy_downgraded_egress_ciphers: 'DEFAULT:@SECLEVEL=0',
+            http_proxy_egress_ciphers:           'ECDHE-RSA-AES128-GCM-SHA256',
             http_proxy_ciphers:           'ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384',
             http_proxy_enabled:           true,
             http_proxy_insecure:          true,
@@ -663,6 +667,10 @@ describe 'thebastion' do
           parsed = JSON.parse(catalogue.resource('concat::fragment', 'thebastion::addons::osh-http-proxy-conf').send(:parameters)[:content])
           expect(parsed['allowed_egress_protocols']).to contain_exactly('http', 'https')
           expect(parsed['allowed_methods']).to contain_exactly('GET', 'PUT')
+          expect(parsed['allow_downgrade']).to be false
+          expect(parsed['allow_redirects']).to eq('none')
+          expect(parsed['downgraded_egress_ciphers']).to eq('DEFAULT:@SECLEVEL=0')
+          expect(parsed['egress_ciphers']).to eq('ECDHE-RSA-AES128-GCM-SHA256')
           expect(parsed['ciphers']).to eq('ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384')
           expect(parsed['enabled']).to be true
           expect(parsed['insecure']).to be true

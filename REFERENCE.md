@@ -871,6 +871,38 @@ List of the allowed HTTP methods that will be forwarded through the proxy, such 
 
 Default value: `$thebastion::params::http_proxy_allowed_methods`
 
+##### `http_proxy_egress_ciphers`
+
+Data type: `String`
+
+Ordered list the TLS client ciphers (egress side), in openssl classic format. Only applies to TLS versions up to 1.2.
+
+Default value: `$thebastion::params::http_proxy_egress_ciphers`
+
+##### `http_proxy_allow_downgrade`
+
+Data type: `Boolean`
+
+Allow the client to request egress SSL negotiation downgrade to TLSv1 if the default negotiation fails, through the X-Bastion-Allow-Downgrade header
+
+Default value: `$thebastion::params::http_proxy_allow_downgrade`
+
+##### `http_proxy_allow_redirects`
+
+Data type: `Enum['none', 'same-host', 'any']`
+
+Policy to apply when a remote device answers with an HTTP redirect: same-host (only follow redirects to the same host, port and protocol, including host-less ones), none (never follow them), or any (always follow them, strongly discouraged). Redirects that are not followed are returned to the client, with the target in the X-Bastion-Remote-Location header
+
+Default value: `$thebastion::params::http_proxy_allow_redirects`
+
+##### `http_proxy_downgraded_egress_ciphers`
+
+Data type: `String`
+
+When the client allows egress SSL negotiation downgrade to TLSv1, additionally set this list of ciphers, such as DEFAULT:@SECLEVEL=0
+
+Default value: `$thebastion::params::http_proxy_downgraded_egress_ciphers`
+
 ##### `piv_grace_reaper_syslog`
 
 Data type: `Optional[String]`
