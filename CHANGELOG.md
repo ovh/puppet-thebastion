@@ -2,7 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
-## [v1.1.7](https://github.com/ovh/puppet-thebastion/tree/v1.1.6) (2025-11-24)
+## [v1.1.8](https://github.com/ovh/puppet-thebastion/tree/v1.1.8) (2026-11-10)
+
+  - proxy: add allow_redirects, allow_downgrade, downgraded_egress_ciphers, egress_ciphers options (#22)
+
+## [v1.1.7](https://github.com/ovh/puppet-thebastion/tree/v1.1.7) (2025-11-24)
 
   - proxy: add allowed_methods option (#18)
 
